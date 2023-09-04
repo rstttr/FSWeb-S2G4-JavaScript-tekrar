@@ -29,10 +29,11 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(cemberYaricap){
+	return 2*pi*cemberYaricap;
 }
 
+console.log(CemberinCevresi(6));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -47,10 +48,11 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
-}
+function CemberinAlani(radius,piDegeri){
 
+	return piDegeri * Math.pow(radius,2);
+}
+console.log(CemberinAlani(15,pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -77,38 +79,101 @@ function CemberinAlani(/* kodlar buraya */){
 	
 	//3a çözümü
 
-	/* kodlar buraya */
+	enkucuk=sayilar[0];
+	enbuyuk=sayilar[0];
+
+	for (let i = 0; i < sayilar.length; i++) {
+		if (sayilar[i]>enbuyuk) {
+			enbuyuk=sayilar[i];
+		}
+		if(sayilar[i]<enkucuk)
+		{
+			enkucuk=sayilar[i];
+		}
+		
+	}
 	
-	
+	console.log(`En büyük: ${enbuyuk} En küçük: ${enkucuk}`);
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
+	ucetambolunenler=[];
+	sayilar.forEach((s)=>{
+		if (s % 3==0) {
+			ucetambolunenler.push(s);
+		}
+	});
+	console.log(ucetambolunenler);
 		
 		
 		
 	//3c çözümü:
 	
-	/* kodlar buraya */
-
+	const test=[3,6,9];
+	ucebolunenlerintoplami=ucetambolunenler.reduce((acc,item)=>{
+		return acc + item;
+	})
+	
 	
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
+	besyuzdenkucuksayilar=sayilar.filter((sayi)=>sayi <500);
+	console.log(besyuzdenkucuksayilar);
 
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
+	siralisayilar=[...besyuzdenkucuksayilar].sort((a,b)=>a-b);
+	console.log(siralisayilar);
+	console.log(besyuzdenkucuksayilar);
 	
 	
 	//3f çözümü
 	
-	/* kodlar buraya */
+	tekraredensayilar=[];
+	const sayiVeTekrarSayisi={};
+	sayilar.map((sayi)=>{
+		sayiVeTekrarSayisi[sayi] =!sayiVeTekrarSayisi[sayi] ? 1 : sayiVeTekrarSayisi[sayi]+1;
+	});
+	console.log(sayiVeTekrarSayisi);
+	for(let anahtar in sayiVeTekrarSayisi)
+	{
+		if(sayiVeTekrarSayisi[anahtar]>1)
+		{
+			tekraredensayilar.push(
+				`${anahtar} sayısı ${sayiVeTekrarSayisi[anahtar]} kere tekrar edilmiştir`
+			);
+		}
+	}
 
+// Bonus: Fiz, Buzz, FizzBuzz
+// ucetambolunenler dizisindeki ilk 20 sayı için, 3'e bölünebilen sayılar için "Fizz", 5'e bölünebilen sayılar için "Buzz", hem 3'e hem 5'e bölünebilen sayılar için "FizzBuzz" yazdırın.
+// ucetambolunenler = [3, 5, 7, 8, 15, 21, 4];
 
+for (let i = 0; i < ucetambolunenler.length; i++) {
+	let str= "";
+	if (ucetambolunenler[i]%3===0 && ucetambolunenler[i]%5 ===0) {
+		str="FizzBuz";
+		
+		
+	}
+	else if(ucetambolunenler[i]%3===0)
+	{
+		str="Fizz";
+
+	}
+	else if(ucetambolunenler[i]%5===0)
+	{
+		str="Buzz";
+	}
+	else{
+		str=ucetambolunenler[i];
+	}
+
+	console.log(ucetambolunenler[i],str);
+}
 
 
 	
